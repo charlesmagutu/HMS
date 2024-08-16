@@ -14,4 +14,8 @@ buildNumber.properties
 # Eclipse Core
 .project
 # JDT-specific (Eclipse Java Development Tools)
+<<<<<<< HEAD
 .classpath
+=======
+.classpath
+>>>>>>> 94455905273d644fe788c21e406f3dbe276162af
