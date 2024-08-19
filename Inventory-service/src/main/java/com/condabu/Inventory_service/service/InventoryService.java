@@ -11,7 +11,6 @@ public class InventoryService {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-
     public Inventory createOrUpdateInventory(Inventory inventory) {
         return inventoryRepository.save(inventory);
     }
