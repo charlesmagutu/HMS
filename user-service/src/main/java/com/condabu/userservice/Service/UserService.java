@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,10 +24,11 @@ public class UserService {
     }
 
     @Transactional
-    public User createNewUser(User user) {
+    public void createNewUser(User user) {
         String encodePassword =  passwordEncoder.encode(user.getPassword());
         user.setPassword(encodePassword);
-        return userDto.save(user);
+
+        userDto.save(user);
     }
 
     public boolean verifyCredentials(String username, String password){
@@ -38,4 +40,16 @@ public class UserService {
         }
         return false;
     }
+
+    public List<User> getAllUsers(){
+        return userDto.findAll();
+    }
+
+
+    public Optional<User> findUserByUserName(String username){
+        return userDto.findByUsername(username);
+    }
+
+
+
 }

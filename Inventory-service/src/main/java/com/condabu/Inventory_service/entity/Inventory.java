@@ -20,10 +20,28 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private long productId;
-    private Integer quantity;
+    @Column(nullable = false)
+    private Integer stockLevel;
+    @Column(nullable = false)
+    private Integer threshold;
+    @Column(nullable = false)
     private String batchNo;
     private LocalDateTime expirationDate;
+    @Column(nullable = false , updatable = false)
     private LocalDateTime created;
     private LocalDateTime updated;
+
+    @PrePersist
+    protected  void  onCreate(){
+        created = LocalDateTime.now();
+        updated = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate(){
+        updated = LocalDateTime.now();
+    }
+
 }

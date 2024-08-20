@@ -15,12 +15,12 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("api/v1/auth")
-public class AuthController {
+public class ServiceResponse {
 
     private final AuthService authService;
 
     @Autowired
-    public AuthController(AuthService authService) {
+    public ServiceResponse(AuthService authService) {
         this.authService = authService;
     }
 

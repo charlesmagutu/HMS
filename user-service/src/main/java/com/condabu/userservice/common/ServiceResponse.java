@@ -1,16 +1,16 @@
-package org.condabu.authservice.entity;
-
+package com.condabu.userservice.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @AllArgsConstructor
-@Setter
+@NoArgsConstructor
 @Getter
-public class AuthResponse {
+@Setter
+public class ServiceResponse {
     private String status;
     private String message;
+
 }
