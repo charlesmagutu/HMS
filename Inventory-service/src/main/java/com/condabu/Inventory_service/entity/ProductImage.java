@@ -1,8 +1,6 @@
 package com.condabu.Inventory_service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,12 +17,14 @@ import java.time.LocalDateTime;
 @Entity
 public class ProductImage {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String productId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
     private String imageUrl;
     private String imageType;
     private LocalDateTime created;
-
 
     @PrePersist
     public  void  onCreate(){

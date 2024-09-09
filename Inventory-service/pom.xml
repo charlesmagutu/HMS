@@ -12,7 +12,7 @@
 	<artifactId>Inventory-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Inventory-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Inventory Service</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -59,18 +59,6 @@
 <!--		</dependency>-->
 		<!-- Apache POI for Excel files -->
 		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>5.2.3</version>
-		</dependency>
-
-		<!-- OpenCSV for CSV files -->
-		<dependency>
-			<groupId>com.opencsv</groupId>
-			<artifactId>opencsv</artifactId>
-			<version>5.5.2</version>
-		</dependency>
-		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
@@ -85,11 +73,6 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>com.condabu</groupId>
-            <artifactId>Inventory-service</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -108,6 +91,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>17</source>
+					<target>17</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
