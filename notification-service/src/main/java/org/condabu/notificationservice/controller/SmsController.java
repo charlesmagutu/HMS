@@ -24,7 +24,7 @@ public class SmsController {
     public String sendSmsNotification(@RequestParam SmsType smsType, @RequestBody Map<String, String> info){
         try{
 
-            return smsService.generateSMS(smsType, info);
+            return smsService.sendSms("",smsService.generateSMS(smsType, info));
 
         }catch (IllegalArgumentException e){
             return "Error: "+e.getMessage();

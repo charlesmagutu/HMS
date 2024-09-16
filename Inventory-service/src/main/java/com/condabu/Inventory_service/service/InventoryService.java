@@ -17,8 +17,14 @@ public class InventoryService {
     @Autowired
     private InventoryRepository inventoryRepository;
 
+    @Autowired
+    private ProductServices productServices;
+
     @Transactional
     public Inventory createOrUpdateInventory(Inventory inventory) {
+
+
+
         return inventoryRepository.save(inventory);
     }
 

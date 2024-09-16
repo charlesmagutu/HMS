@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 @Service
@@ -144,6 +145,23 @@ public class ProductServices {
                 }).collect(Collectors.toList()));
         return productDto;
     }
+
+
+    private Boolean isProductExist(Long productId) {
+        try {
+            productRepository.findById(productId)
+                    .orElseThrow(() -> new IllegalArgumentException("Product not found with id: " + productId));
+            return true;
+        } catch (IllegalArgumentException e) {
+
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+
+            System.out.println("An error occurred while checking if product exists: " + e.getMessage());
+        }
+        return false;
+    }
+
 
     private ProductDto convertToDto(Product product) {
         ProductDto productDto = new ProductDto();
