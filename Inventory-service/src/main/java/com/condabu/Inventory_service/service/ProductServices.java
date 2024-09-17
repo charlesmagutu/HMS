@@ -2,10 +2,10 @@ package com.condabu.Inventory_service.service;
 
 
 import com.condabu.Inventory_service.common.ServiceResponse;
-import com.condabu.Inventory_service.dto.ImageRepository;
+import com.condabu.Inventory_service.repository.ImageRepository;
 import com.condabu.Inventory_service.dto.ProductDto;
 import com.condabu.Inventory_service.dto.ProductImageDTO;
-import com.condabu.Inventory_service.dto.ProductRepository;
+import com.condabu.Inventory_service.repository.ProductRepository;
 import com.condabu.Inventory_service.entity.Product;
 import com.condabu.Inventory_service.entity.ProductImage;
 import jakarta.transaction.Transactional;
@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 @Service

@@ -10,7 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-
 public class ProductImageDTO {
     private String imageUrl;
     private String imageType;

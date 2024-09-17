@@ -1,4 +1,4 @@
-package com.condabu.Inventory_service.dto;
+package com.condabu.Inventory_service.repository;
 
 import com.condabu.Inventory_service.entity.ProductImage;
 import org.springframework.data.jpa.repository.JpaRepository;

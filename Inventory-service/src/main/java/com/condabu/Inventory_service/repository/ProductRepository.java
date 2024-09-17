@@ -1,4 +1,4 @@
-package com.condabu.Inventory_service.dto;
+package com.condabu.Inventory_service.repository;
 
 import com.condabu.Inventory_service.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

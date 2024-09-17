@@ -1,15 +1,12 @@
 package com.condabu.Inventory_service.service;
 
+import com.condabu.Inventory_service.dto.StockCheckRequest;
 import com.condabu.Inventory_service.entity.Inventory;
-import com.condabu.Inventory_service.dto.InventoryRepository;
+import com.condabu.Inventory_service.repository.InventoryRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.List;
 
 
 @Service
@@ -22,8 +19,6 @@ public class InventoryService {
 
     @Transactional
     public Inventory createOrUpdateInventory(Inventory inventory) {
-
-
 
         return inventoryRepository.save(inventory);
     }
@@ -38,4 +33,5 @@ public class InventoryService {
 //
 //        }
 //    }
+
 }
