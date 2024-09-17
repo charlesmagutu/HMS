@@ -2,6 +2,7 @@ package com.condabu.paymentservice.mpesa.controller;
 
 import com.condabu.paymentservice.mpesa.dto.MpesaStkPushRequest;
 import com.condabu.paymentservice.mpesa.service.MpesaService;
+import com.condabu.paymentservice.mpesa.service.MpesaTransactionService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,17 +13,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/api/v1/payment/mpesa")
 public class MpesaStkPushController {
 
     private static final Logger log = LoggerFactory.getLogger(MpesaStkPushController.class);
     @Autowired
     private  MpesaService mpesaService;
-
+    @Autowired
+    private MpesaTransactionService mpesaTransactionService;
     public MpesaStkPushController(MpesaService mpesaService) {
         this.mpesaService = mpesaService;
     }
@@ -41,7 +44,7 @@ public class MpesaStkPushController {
 
         try {
             // Delegate the logic to the service
-            String result = String.valueOf(mpesaService.handleCallback(callBackData));
+            String result = String.valueOf(mpesaTransactionService.handleCallback(callBackData));
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             log.error("Error processing callback: {}", e.getMessage());

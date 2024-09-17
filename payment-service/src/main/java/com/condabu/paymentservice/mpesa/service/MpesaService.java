@@ -84,31 +84,4 @@ public class MpesaService {
         return localDateTime.format(dateFormat);
     }
 
-
-        public ResponseEntity<String> handleCallback(Map<String, Object> callbackData) {
-            log.info("Received callback from MPesa: {}", callbackData);
-
-            // You can process the callback data here, for example, checking if the transaction was successful
-            Map<String, Object> body = (Map<String, Object>) callbackData.get("Body");
-            if (body != null) {
-                Map<String, Object> stkCallback = (Map<String, Object>) body.get("stkCallback");
-                if (stkCallback != null) {
-                    Integer resultCode = (Integer) stkCallback.get("ResultCode");
-                    String resultDesc = (String) stkCallback.get("ResultDesc");
-
-                    // Log the result of the transaction
-                    log.info("Transaction Result Code: {}", resultCode);
-                    log.info("Transaction Result Description: {}", resultDesc);
-
-                    if (resultCode == 0) {
-                        // Transaction was successful, handle success logic here
-                        log.info("Transaction successful.");
-                    } else {
-                        // Transaction failed, handle failure logic
-                        log.error("Transaction failed: {}", resultDesc);
-                    }
-                }
-            }
-            return new ResponseEntity<>("Callback received successfully", HttpStatus.OK);
-        }
 }
