@@ -26,6 +26,7 @@ public class Inventory {
     private Integer stockLevel;
     @Column(nullable = false)
     private Integer threshold;
+    private Integer reservedStock =0;
     @Column(nullable = false)
     private String batchNo;
     private LocalDateTime expirationDate;
