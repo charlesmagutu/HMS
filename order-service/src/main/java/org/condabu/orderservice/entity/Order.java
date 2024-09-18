@@ -16,6 +16,6 @@ public class Order {
     private Long userId;
     private double totalAmount;
     private String status;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderItem> orderItems;
 }
